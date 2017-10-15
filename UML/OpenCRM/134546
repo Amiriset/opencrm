@@ -1,0 +1,209 @@
+format 214
+"com.amiriset.opencrm" // com.amiriset.opencrm
+  revision 1
+  modified_by 18 "evgen"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  package_ref 134674 // common
+
+  package_ref 134802 // server
+
+  package_ref 134930 // client
+
+  usecaseview 134546 "Client Server Schema"
+    
+    usecasediagramsettings end
+    
+    sequencediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    classdiagramsettings member_max_width 0 end
+    
+    objectdiagramsettings end
+    
+    statediagramsettings
+     end
+    
+    activitydiagramsettings
+     end
+    comment "Обобщенная схема клиент-серверного приложения"
+    usecasediagram 134546 "Diagramm"
+      usecasediagramsettings end
+      size A4
+    end
+
+    usecase 134546 "DataBase"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      comment "База данных"
+    end
+
+    usecase 134674 "Services"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      comment "Сервисы"
+    end
+
+    usecase 134802 "Server"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      comment "Сервер"
+    end
+
+    usecase 134930 "Client"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      comment "Клиент"
+    end
+
+    usecase 135058 "Application"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      comment "Клиентское приложение"
+      simplerelation 134546
+	---|>
+	  on usecase_ref 134930 // Client
+      end
+    end
+
+    usecase 135186 "Web"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      comment "Веб приложение"
+      simplerelation 134674
+	---|>
+	  on usecase_ref 134930 // Client
+      end
+    end
+  end
+
+  usecaseview 134674 "Packages Schema"
+    
+    usecasediagramsettings end
+    
+    sequencediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    classdiagramsettings member_max_width 0 end
+    
+    objectdiagramsettings end
+    
+    statediagramsettings
+     end
+    
+    activitydiagramsettings
+     end
+    usecasediagram 134674 "Diagramm"
+      usecasediagramsettings end
+      size A4
+    end
+  end
+end

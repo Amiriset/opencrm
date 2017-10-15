@@ -1,0 +1,38 @@
+format 214
+"client" // com.amiriset.opencrm::client
+  revision 1
+  modified_by 18 "evgen"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  package_ref 135058 // application
+
+  package_ref 135186 // web
+
+  simplerelation 135058
+    -_->
+      on 
+      package_ref 134674 // common
+  end
+end

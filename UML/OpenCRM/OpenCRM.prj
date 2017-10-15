@@ -1,6 +1,6 @@
 format 214
 "OpenCRM"
-  revision 1
+  revision 2
   modified_by 18 "evgen"
 
 
@@ -39,4 +39,5 @@ format 214
 
   mark_for_import
   
+  package_ref 134546 // com.amiriset.opencrm
 end

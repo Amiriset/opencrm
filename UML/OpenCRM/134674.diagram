@@ -1,0 +1,37 @@
+format 214
+
+packagecanvas 128018 
+  package_ref 134674 // common
+    xyzwh 250 44 2000 65 85
+end
+packagecanvas 128146 
+  package_ref 134802 // server
+    xyzwh 134 147 2000 75 85
+end
+packagecanvas 128274 
+  package_ref 134930 // client
+    xyzwh 356 159 2000 65 85
+end
+packagecanvas 128402 
+  package_ref 135058 // application
+    xyzwh 264 270 2000 71 85
+end
+packagecanvas 128530 
+  package_ref 135186 // web
+    xyzwh 454 266 2000 65 85
+end
+textcanvas 129170 "com.amiriset.opencrm"
+  xyzwh 4 2 2000 129 17
+simplerelationcanvas 128658 simplerelation_ref 134802
+  from ref 128402 z 2001 to ref 128274
+end
+simplerelationcanvas 128786 simplerelation_ref 134930
+  from ref 128530 z 2001 to ref 128274
+end
+simplerelationcanvas 128914 simplerelation_ref 135058
+  from ref 128274 z 2001 to ref 128018
+end
+simplerelationcanvas 129042 simplerelation_ref 135186
+  from ref 128146 z 2001 to ref 128018
+end
+end
