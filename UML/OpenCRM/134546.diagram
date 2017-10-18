@@ -1,27 +1,31 @@
 format 214
 
 usecasecanvas 128018 usecase_ref 134546 // DataBase
-  xyzwh 107 83 3005 64 32 label_xy 112 115
+  xyzwh 73 109 3005 64 32 label_xy 78 141
 end
 usecasecanvas 128146 usecase_ref 134674 // Services
-  xyzwh 113 180 3005 64 32 label_xy 122 212
+  xyzwh 70 215 3005 64 32 label_xy 79 247
 end
 usecasecanvas 128274 usecase_ref 134802 // Server
-  xyzwh 244 133 3005 64 32 label_xy 258 165
+  xyzwh 210 159 3005 64 32 label_xy 224 191
 end
-usecasecanvas 128402 usecase_ref 134930 // Client
-  xyzwh 391 135 3005 69 33 label_xy 412 167
+usecasecanvas 128402 usecase_ref 134930 // Abstract Client
+  xyzwh 357 161 3005 69 33 label_xy 353 193
 end
 usecasecanvas 128530 usecase_ref 135058 // Application
-  xyzwh 529 84 3005 69 33 label_xy 534 116
+  xyzwh 495 110 3005 69 33 label_xy 500 142
 end
 usecasecanvas 128658 usecase_ref 135186 // Web
-  xyzwh 536 179 3005 69 33 label_xy 560 211
+  xyzwh 502 205 3005 69 33 label_xy 526 237
 end
 subject 129682 "Server Side"
-  xyzwh 79 23 3000 252 228
+  xyzwh 45 49 3000 252 228
 subject 129810 "Client Side"
-  xyzwh 375 22 2000 263 226
+  xyzwh 341 48 2000 263 226
+textcanvas 130066 "com.amiriset.opencrm"
+  xyzwh 6.5 22.5 2000 129 17
+textcanvas 130194 "[OpenCRM]"
+  xyzwh 6 5 2005 70 15
 simplerelationcanvas 129042 simplerelation_ref 134546
   from ref 128530 z 3006 to ref 128402
 end
