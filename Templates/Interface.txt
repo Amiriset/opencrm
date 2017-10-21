@@ -25,7 +25,6 @@ package ${package};
  * @version ${version}
  * @package ${package}
  *
- * @copyright ${company_name} ${date?date?string("yyyy")} (${company_site})
  * @author ${user}
  * @created ${date?date?string("yyyy-MM-dd")} ${time}
  */ 

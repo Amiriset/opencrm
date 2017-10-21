@@ -7,16 +7,14 @@
  *   /_/   |_||_| |_| |_||_||_|   |_||____/  \___|  |___|                    *
  *                                                                           *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-<#if package?? && package != "">
-package ${package};
+package com.amiriset.opencrm.server;
 
-</#if>
 
 //------------------------------------------------------------------------------
 //    DESCRIPTIONS
 //------------------------------------------------------------------------------
 /**
- * Класс <b>${name}</b> -- без описания.
+ * Класс <b>CRMServer</b> -- без описания.
  * <br>
  * <p><b>НАСЛЕДОВАНИЕ</b>:
  * <br>- Object; 
@@ -24,6 +22,7 @@ package ${package};
  * <p><b>ПОДКЛАССЫ</b>: нет.</p>
  * <p><b>МЕТОДЫ</b>:
  * <br><i>public</i>
+ * <br>+ <b><i>main(Strings[] args)</i></b>: void;
  * <br>- toString(): String;
  * <br>
  * <br><i>protected</i>
@@ -37,30 +36,37 @@ package ${package};
  * </p>
  * <br>
  * @link
- * @version ${version}
- * @package ${package}
+ * @version 0.1
+ * @package com.amiriset.opencrm.server
  *
- * @author ${user}
- * @created ${date?date?string("yyyy-MM-dd")} ${time}
+ * @author E.Frolov <frolov@amiriset.com>
+ * @created 2017-10-22 0:12:17
  */
-public class ${name} {
+public class CRMServer {
     //--------------------------------------------------------------------------
     // CONSTRUCTOR
     //--------------------------------------------------------------------------
     //<editor-fold defaultstate="collapsed" desc="Click on the [+] sign on the left to edit the code.">
     /**
-     * Создать новый экземпляр класса <b>${name}</b>.
+     * Создать новый экземпляр класса <b>CRMServer</b>.
      */
-    public ${name}(){/***/}
+    public CRMServer(){/***/}
     //</editor-fold>
     //--------------------------------------------------------------------------
     // PUBLIC SECTION
     //--------------------------------------------------------------------------
     //<editor-fold defaultstate="collapsed" desc="Click on the [+] sign on the left to edit the code.">
+    /**
+     * Точка входа в приложение.
+     * @param args параметры (необязательный)
+     */
+    public static void main(String[] args) {
+        System.out.println(args);
+    }
     @Override
     public String toString(){
         StringBuilder _dump = new StringBuilder();
-        return(_dump.append("${name}{")
+        return(_dump.append("CRMServer{")
                     .append('}')
                     .toString());
     }
@@ -78,4 +84,3 @@ public class ${name} {
 
     //</editor-fold>
 }
-

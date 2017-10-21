@@ -24,6 +24,7 @@ package ${package};
  * <p><b>ПОДКЛАССЫ</b>: нет.</p>
  * <p><b>МЕТОДЫ</b>:
  * <br><i>public</i>
+ * <br>+ <b><i>main(String[] args)</i></b>: void;
  * <br>- toString(): String;
  * <br>
  * <br><i>protected</i>
