@@ -1,7 +1,7 @@
 format 214
 "com.amiriset.opencrm" // com.amiriset.opencrm
-  revision 1
-  modified_by 18 "evgen"
+  revision 2
+  modified_by 18 "User"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -115,7 +115,7 @@ format 214
       comment "Сервер"
     end
 
-    usecase 134930 "Client"
+    usecase 134930 "Abstract Client"
       
       usecasediagramsettings end
       
@@ -155,7 +155,7 @@ format 214
       comment "Клиентское приложение"
       simplerelation 134546
 	---|>
-	  on usecase_ref 134930 // Client
+	  on usecase_ref 134930 // Abstract Client
       end
     end
 
@@ -179,7 +179,7 @@ format 214
       comment "Веб приложение"
       simplerelation 134674
 	---|>
-	  on usecase_ref 134930 // Client
+	  on usecase_ref 134930 // Abstract Client
       end
     end
   end
