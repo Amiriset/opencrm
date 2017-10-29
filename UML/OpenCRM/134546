@@ -1,7 +1,7 @@
 format 214
 "com.amiriset.opencrm" // com.amiriset.opencrm
-  revision 2
-  modified_by 18 "User"
+  revision 7
+  modified_by 18 "evgen"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -204,6 +204,763 @@ format 214
     usecasediagram 134674 "Diagramm"
       usecasediagramsettings end
       size A4
+    end
+  end
+
+  classview 134546 "DataBase"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    classdiagram 141202 "Entities Schema"
+      classdiagramsettings draw_all_relations no show_members_full_definition yes show_members_visibility yes member_max_width 0 end
+      size A3
+    end
+
+    class 134546 "Company"
+      visibility package stereotype "table"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl "DROP TABLE IF EXISTS ${name};
+CREATE TABLE ${name} ${definition}${comment};
+"
+      
+      comment "Компании"
+      classrelation 135186 // <association>
+	relation_ref 134802 // <association>
+      end
+
+      classrelation 135314 // <association>
+	relation 134930 ----
+	  a role_name "" multiplicity "*" public
+	    classrelation_ref 135314 // <association>
+	  b role_name "" multiplicity "1" public
+	    classrelation_ref 135442 // <association>
+      end
+
+      attribute 145170 "Id"
+	default explicit_type "INT UNSIGNED NOT NULL  AUTO_INCREMENT"
+	init_value "NOT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД Записи"
+      end
+
+      attribute 142098 "CreatorId"
+	default explicit_type "INT UNSIGNED DEFAULT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД контакта создателя"
+      end
+
+      attribute 142226 "CreatedTS"
+	default explicit_type "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "Дата/время создания"
+      end
+
+      attribute 142354 "ModifierId"
+	default explicit_type "INT UNSIGNED DEFAULT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД контакта изменившего"
+      end
+
+      attribute 142482 "ModifiedTS"
+	default explicit_type "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "Дата/время изменения"
+      end
+
+      attribute 142610 "Name"
+	default explicit_type "VARCHAR(128) NOT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "Название"
+      end
+
+      attribute 142738 "CompanyTypeId"
+	default explicit_type "INT UNSIGNED DEFAULT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД типа компании"
+      end
+
+      attribute 134546 "PRIMARY_KEY"
+	default explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${constraint}${modifier}KEY${name}${type} (${columns})${ref}${comment}"
+	MysqlKey
+	columns
+	  attribute_ref 145170 // Id
+	end
+      end
+
+      attribute 147346 "FOREIGN_KEY"
+	default explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${constraint}${modifier}KEY${name}${type} (${columns})${ref}${comment}"
+	MysqlKey
+	columns
+	  attribute_ref 142738 // CompanyTypeId
+	end
+      end
+
+      attribute 145298 "KEY"
+	default explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${constraint}${modifier}KEY${name}${type} (${columns})${ref}${comment}"
+	MysqlKey
+	columns
+	  attribute_ref 142098 // CreatorId
+	  attribute_ref 142354 // ModifierId
+	end
+      end
+    end
+
+    class 134802 "CompanyContact"
+      visibility package stereotype "table"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl "DROP TABLE IF EXISTS ${name};
+CREATE TABLE ${name} ${definition}${comment};
+"
+      
+      comment "Контакты в Компании"
+      classrelation 135442 // <association>
+	relation_ref 134930 // <association>
+      end
+
+      classrelation 135698 // <association>
+	relation_ref 135058 // <association>
+      end
+
+      attribute 142866 "CreatorId"
+	default explicit_type "INT UNSIGNED DEFAULT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД Контакта создавшего"
+      end
+
+      attribute 142994 "CreatedTS"
+	default explicit_type "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "Дата/время создания"
+      end
+
+      attribute 143122 "ModifierId"
+	default explicit_type "INT UNSIGNED DEFAULT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД Контакта изменившего"
+      end
+
+      attribute 143250 "ModifiedTS"
+	default explicit_type "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "Дата/время изменения"
+      end
+
+      attribute 144274 "CompanyId"
+	default explicit_type "INT UNSIGNED NOT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД Компании"
+      end
+
+      attribute 144402 "ContactId"
+	default explicit_type "INT UNSIGNED NOT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД Контакта"
+      end
+
+      attribute 144914 "KEY"
+	default explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${constraint}${modifier}KEY${name}${type} (${columns})${ref}${comment}"
+	MysqlKey
+	columns
+	  attribute_ref 142866 // CreatorId
+	  attribute_ref 143122 // ModifierId
+	end
+      end
+
+      attribute 147218 "FOREIGN_KEY"
+	default explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${constraint}${modifier}KEY${name}${type} (${columns})${ref}${comment}"
+	MysqlKey
+	columns
+	  attribute_ref 144274 // CompanyId
+	  attribute_ref 144402 // ContactId
+	end
+      end
+    end
+
+    class 135058 "CompanyType"
+      visibility package stereotype "table"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl "DROP TABLE IF EXISTS ${name};
+CREATE TABLE ${name} ${definition}${comment};
+"
+      
+      comment "Тип компании"
+      classrelation 135058 // <association>
+	relation 134802 ----
+	  a role_name "" multiplicity "*" public
+	    classrelation_ref 135058 // <association>
+	  b role_name "" multiplicity "1" public
+	    classrelation_ref 135186 // <association>
+      end
+
+      attribute 145938 "Id"
+	default explicit_type "INT UNSIGNED NOT NULL AUTO_INCREMENT"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД записи"
+      end
+
+      attribute 141330 "CreatorId"
+	default explicit_type "INT UNSIGNED DEFAULT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД Контакта создавшего"
+      end
+
+      attribute 141458 "CreatedTS"
+	default explicit_type "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "Дата/время создания"
+      end
+
+      attribute 141586 "ModifierId"
+	default explicit_type "INT UNSIGNED DEFAULT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД Контакта изменившего"
+      end
+
+      attribute 141714 "ModifiedTS"
+	default explicit_type "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "Дата/время изменившего"
+      end
+
+      attribute 141842 "Name"
+	default explicit_type "VARCHAR(128)  NOT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "Название"
+      end
+
+      attribute 141970 "Description"
+	default explicit_type "VARCHAR(256) DEFAULT ''"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "Описание"
+      end
+
+      attribute 141202 "PRIMARY_KEY"
+	default explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${constraint}${modifier}KEY${name}${type} (${columns})${ref}${comment}"
+	MysqlKey
+	columns
+	  attribute_ref 145938 // Id
+	end
+	comment "ИД записи"
+      end
+
+      attribute 145810 "KEY"
+	default explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${constraint}${modifier}KEY${name}${type} (${columns})${ref}${comment}"
+	MysqlKey
+	columns
+	  attribute_ref 141330 // CreatorId
+	  attribute_ref 141586 // ModifierId
+	end
+      end
+    end
+
+    class 134674 "Contact"
+      visibility package stereotype "table"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl "DROP TABLE IF EXISTS ${name};
+CREATE TABLE ${name} ${definition}${comment};
+"
+      
+      comment "Контакты"
+      classrelation 135570 // <association>
+	relation 135058 ----
+	  a role_name "" multiplicity "*" public
+	    classrelation_ref 135570 // <association>
+	  b role_name "" multiplicity "1" public
+	    classrelation_ref 135698 // <association>
+      end
+
+      attribute 145554 "Id"
+	default explicit_type "INT UNSIGNED NOT NULL  AUTO_INCREMENT"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД записи"
+      end
+
+      attribute 143378 "CreatorId"
+	default explicit_type "INT UNSIGNED DEFAULT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД Контакта создателя"
+      end
+
+      attribute 143506 "CreatedTS"
+	default explicit_type "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "Дата/время создания"
+      end
+
+      attribute 143634 "ModifierId"
+	default explicit_type "INT UNSIGNED DEFAULT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД Контакта изменившего"
+      end
+
+      attribute 143762 "ModifiedTS"
+	default explicit_type "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "Дата/время изменения"
+      end
+
+      attribute 143890 "Name"
+	default explicit_type "VARCHAR(128) NOT NULL"
+	init_value " "
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "Имя"
+      end
+
+      attribute 144018 "Surname"
+	default explicit_type "VARCHAR(128) DEFAULT ''"
+	init_value " "
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "Фамилия"
+      end
+
+      attribute 144146 "BirthDate"
+	default explicit_type "INT UNSIGNED"
+	init_value "DEFAULT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "Дата рождения"
+      end
+
+      attribute 141074 "PRIMARY_KEY"
+	default explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${constraint}${modifier}KEY${name}${type} (${columns})${ref}${comment}"
+	MysqlKey
+	columns
+	  attribute_ref 145554 // Id
+	end
+      end
+
+      attribute 145426 "KEY"
+	default explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${constraint}${modifier}KEY${name}${type} (${columns})${ref}${comment}"
+	MysqlKey
+	columns
+	  attribute_ref 143378 // CreatorId
+	  attribute_ref 143634 // ModifierId
+	end
+      end
+
+      classrelation 142610 // <association>
+	relation 141842 ----
+	  a role_name "" multiplicity "*" public
+	    classrelation_ref 142610 // <association>
+	  b role_name "" multiplicity "1" public
+	    classrelation_ref 142738 // <association>
+      end
+    end
+
+    class 141714 "User"
+      visibility package stereotype "table"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl "DROP TABLE IF EXISTS ${name};
+CREATE TABLE ${name} ${definition}${comment};
+"
+      
+      classrelation 142738 // <association>
+	relation_ref 141842 // <association>
+      end
+
+      attribute 145042 "Id"
+	default explicit_type "INT UNSIGNED NOT NULL AUTO_INCREMENT"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД записи"
+      end
+
+      attribute 144658 "CreatorId"
+	default explicit_type "INT UNSIGNED DEFAULT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД Контакта создавшего"
+      end
+
+      attribute 146066 "CreatedTS"
+	default explicit_type "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+      end
+
+      attribute 146194 "ModifierId"
+	default explicit_type "INT UNSIGNED DEFAULT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+      end
+
+      attribute 146322 "ModifiedTS"
+	default explicit_type "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+      end
+
+      attribute 146450 "Name"
+	default explicit_type "VARCHAR(128) NOT NULL"
+	init_value "Новый пользователь"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+      end
+
+      attribute 146578 "Email"
+	default explicit_type "VARCHAR(128) NOT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+      end
+
+      attribute 146706 "Password"
+	default explicit_type "VARCHAR(64) NOT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+      end
+
+      attribute 146834 "ContactId"
+	default explicit_type "INT UNSIGNED DEFAULT NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
+	MysqlColumn
+	comment "ИД Контакта "
+      end
+
+      attribute 146962 "PRIMARY_KEY"
+	default explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${constraint}${modifier}KEY${name}${type} (${columns})${ref}${comment}"
+	MysqlKey
+	columns
+	  attribute_ref 145042 // Id
+	end
+      end
+
+      attribute 147090 "FOREIGN_KEY"
+	default explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${constraint}${modifier}KEY${name}${type} (${columns})${ref}${comment}"
+	MysqlKey
+	columns
+	  attribute_ref 146834 // ContactId
+	end
+      end
+
+      attribute 147474 "KEY"
+	default explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl "  ${constraint}${modifier}KEY${name}${type} (${columns})${ref}${comment}"
+	MysqlKey
+	columns
+	  attribute_ref 144658 // CreatorId
+	  attribute_ref 146194 // ModifierId
+	end
+      end
     end
   end
 end

@@ -1,0 +1,66 @@
+format 214
+
+classcanvas 128018 class_ref 134546 // Company
+  classdiagramsettings member_max_width 0 end
+  xyz 477 309 2000
+end
+classcanvas 128146 class_ref 134674 // Contact
+  classdiagramsettings member_max_width 0 end
+  xyz 472 53 2000
+end
+classcanvas 128274 class_ref 134802 // CompanyContact
+  classdiagramsettings member_max_width 0 end
+  xyz 8 71 2000
+end
+classcanvas 128914 class_ref 135058 // CompanyType
+  classdiagramsettings show_members_visibility yes member_max_width 0 end
+  xyz 14 312 2000
+end
+textcanvas 131090 "[OpenCRM] DB: Entities Schema
+com.amiriset.opencm"
+  xyzwh 7 7 2000 193 43
+classcanvas 131218 class_ref 141714 // User
+  classdiagramsettings member_max_width 0 end
+  xyz 910 48 2000
+end
+relationcanvas 129554 relation_ref 134802 // <association>
+  geometry HVH unfixed
+  decenter_begin 289
+  decenter_end 759
+  from ref 128914 z 2001 to point 432 373
+  line 129682 z 2001 to point 432 489
+  line 129810 z 2001 to ref 128018
+  no_role_a no_role_b
+  multiplicity_a_pos 459 499 3000 multiplicity_b_pos 414 383 3000
+end
+relationcanvas 129938 relation_ref 134930 // <association>
+  geometry HVH unfixed
+  decenter_begin 289
+  decenter_end 648
+  from ref 128018 z 2001 to point 450 376
+  line 130066 z 2001 to point 450 200
+  line 130194 z 2001 to ref 128274
+  no_role_a no_role_b
+  multiplicity_a_pos 408 210 3000 multiplicity_b_pos 459 386 3000
+end
+relationcanvas 130322 relation_ref 135058 // <association>
+  geometry HVH unfixed
+  decenter_begin 217
+  decenter_end 741
+  from ref 128146 z 2001 to point 423 103
+  line 130578 z 2001 to point 423 219
+  line 130706 z 2001 to ref 128274
+  no_role_a no_role_b
+  multiplicity_a_pos 408 229 3000 multiplicity_b_pos 454 113 3000
+end
+relationcanvas 131474 relation_ref 141842 // <association>
+  geometry HVH unfixed
+  decenter_begin 217
+  decenter_end 925
+  from ref 128146 z 2001 to point 885 103
+  line 131602 z 2001 to point 885 304
+  line 131730 z 2001 to ref 131218
+  no_role_a no_role_b
+  multiplicity_a_pos 892 314 3000 multiplicity_b_pos 872 113 3000
+end
+end

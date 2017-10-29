@@ -23,7 +23,7 @@ end
 textcanvas 129170 "com.amiriset.opencrm"
   xyzwh 4 22 2000 129 17
 textcanvas 129426 "[OpenCRM]"
-  xyzwh 4 4.5 2005 70 15
+  xyzwh 4 4 2005 70 15
 simplerelationcanvas 128658 simplerelation_ref 134802
   from ref 128402 z 2001 to ref 128274
 end
